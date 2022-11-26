@@ -1,0 +1,29 @@
+
+
+
+.bi {
+    font-size: 1.4rem;
+}
+
+.bi-moon {
+    display: none;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+
+/* Aplicando dark mode */
+.dark {
+    background-color: #161b22;
+    color: #fff;
+}
+
+.dark .bi-moon {
+    display: block;
+}
+
+.dark .bi-sun {
+    display: none;
+}
