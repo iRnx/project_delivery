@@ -12,7 +12,7 @@ def home(request):
     produtos = Produto.objects.all()
     categorias = Categoria.objects.all()
     
-    return render(request, 'home.html', {'produtos': produtos, 'carrinho': len(request.session['carrinho']), 'categorias': categorias})
+    return render(request, 'produto/home.html', {'produtos': produtos, 'carrinho': len(request.session['carrinho']), 'categorias': categorias})
 
 
 def categoria(request, id):
@@ -25,7 +25,7 @@ def categoria(request, id):
     produtos = Produto.objects.filter(categoria_id = id)
     categorias = Categoria.objects.all()
 
-    return render(request, 'home.html', {'produtos': produtos,
+    return render(request, 'produto/home.html', {'produtos': produtos,
                                         'carrinho': len(request.session['carrinho']),
                                         'categorias': categorias,})
 
@@ -41,7 +41,7 @@ def produto(request, id):
 
     produto = Produto.objects.filter(id=id)[0]
     categorias = Categoria.objects.all()
-    return render(request, 'produto.html', {'produto': produto, 
+    return render(request, 'produto/produto.html', {'produto': produto, 
                                             'carrinho': len(request.session['carrinho']),
                                             'categorias': categorias,
                                             'erro': erro})
@@ -160,7 +160,7 @@ def ver_carrinho(request):
         
 
 
-    return render(request, 'ver_carrinho.html', {'dados': dados_mostrar,
+    return render(request, 'produto/ver_carrinho.html', {'dados': dados_mostrar,
                                              'total': f'{total:.2f}',
                                              'carrinho': len(request.session['carrinho']),
                                              'categorias': categorias,
