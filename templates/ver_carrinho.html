@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+{% load filtros %}
+
+
+{% block 'content'%}
+<br>
+<br>
+<div class="container">
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Imagem</th>
+        <th>Produto</th>
+        <th>QTD.</th>
+        <th>Sub total</th>
+        <th>Remover</th>
+      </tr>
+    </thead>
+    <tbody>
+
+{% for id, valor in dados|enumerate %}
+
+      <tr>
+        <th><img src="{{valor.imagem}}" width="50px"></th>
+        <td>{{valor.nome}}</td>
+        <td>{{valor.quantidade}}</td>
+        <td>{{valor.preco}}</td>
+        <td><a href="{% url 'remover_carrinho' id %}" class="btn btn-danger">Remover</a></td>
+      </tr>
+{% endfor %}
+    </tbody>
+  </table>
+  <h3>Frete: R${{frete}}0</h3>
+  <h1 class="titulo">Total: </h1>
+  <h2 style="color: gray;">R${{total}}</h2>
+  <a href="" class="btn btn-success">Finalizar compra</a>
+  <a href="{% url 'home' %}" class="btn btn-primary">Continuar comprando</a>
+</div>
+{% endblock %}
